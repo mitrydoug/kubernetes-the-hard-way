@@ -11,5 +11,6 @@ RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.asc] http://packages.c
 
 
 # https://github.com/cloudflare/cfssl
-RUN go get github.com/cloudflare/cfssl/cmd/cfssl
-RUN go get github.com/cloudflare/cfssl/cmd/cfssljson
+# https://go.dev/doc/go-get-install-deprecation
+RUN go install github.com/cloudflare/cfssl/cmd/cfssl@latest
+RUN go install github.com/cloudflare/cfssl/cmd/cfssljson@latest
