@@ -9,8 +9,11 @@ RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.asc] http://packages.c
     apt-get update -y && apt-get install google-cloud-cli -y
       
 
-
 # https://github.com/cloudflare/cfssl
 # https://go.dev/doc/go-get-install-deprecation
 RUN go install github.com/cloudflare/cfssl/cmd/cfssl@latest
 RUN go install github.com/cloudflare/cfssl/cmd/cfssljson@latest
+
+RUN wget https://storage.googleapis.com/kubernetes-release/release/v1.21.0/bin/linux/amd64/kubectl && \
+    chmod +x kubectl && \
+    mv kubectl /usr/local/bin/
